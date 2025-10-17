@@ -1,13 +1,21 @@
 import { useState } from "react";
 import "./Navbar.css";
+import { translations } from '/src/translations/translations.js';
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [activeSubmenu, setActiveSubmenu] = useState(null);
+  const [language, setLanguage] = useState("en");
+
+  const t = translations[language];
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const toggleLanguage = () => {
+    setLanguage(language === "en" ? "ne" : "en");
   };
 
   const toggleDropdown = (e, dropdownName) => {
@@ -20,9 +28,8 @@ export default function Navbar() {
 
   const toggleSubmenu = (e, submenuName) => {
     e.preventDefault();
-    if (window.innerWidth <= 1200) {
-      setActiveSubmenu(activeSubmenu === submenuName ? null : submenuName);
-    }
+    e.stopPropagation();
+    setActiveSubmenu(activeSubmenu === submenuName ? null : submenuName);
   };
 
   return (
@@ -40,62 +47,43 @@ export default function Navbar() {
         </div>
 
         <nav className={`navbar-menu ${isMobileMenuOpen ? "open" : ""}`}>
-          <a href="#">Home</a>
+          <a href="#">{t.home}</a>
 
-          {/* ABOUT US DROPDOWN */}
+          {/* ABOUT US DROPDOWN (Mega Menu) */}
           <div
             className={`dropdown ${activeDropdown === "about" ? "active" : ""}`}
             onClick={(e) => toggleDropdown(e, "about")}
           >
-            <span className="dropbtn">About Us</span>
-            <div className="dropdown-content">
-              {/* INTRODUCTION with submenu */}
-              <div
-                className={`submenu-item ${
-                  activeSubmenu === "intro" ? "active" : ""
-                }`}
-                onClick={(e) => toggleSubmenu(e, "intro")}
-              >
-                <a href="#">INTRODUCTION</a>
-                <div className="submenu">
-                  <a href="#">About Us</a>
-                  <a href="#">Organizational Structures</a>
-                  <a href="#">Board of Directors</a>
-                  <a href="#">Contact Information</a>
+            <span className="dropbtn">{t.aboutUs}</span>
+            <div className="dropdown-content mega-menu">
+              <div className="mega-columns">
+                <div>
+                  <h4>{t.introduction}</h4>
+                  <a href="#">{t.aboutUsLink}</a>
+                  <a href="#">{t.organizationalStructure}</a>
+                  <a href="#">{t.boardOfDirectors}</a>
+                  <a href="#">{t.contactInformation}</a>
                 </div>
-              </div>
-
-              {/* CORPORATE OFFICES with submenu */}
-              <div
-                className={`submenu-item ${
-                  activeSubmenu === "corporate" ? "active" : ""
-                }`}
-                onClick={(e) => toggleSubmenu(e, "corporate")}
-              >
-                <a href="#">CORPORATE OFFICES</a>
-                <div className="submenu">
-                  <a href="#">Head Office</a>
-                  <a href="#">Branch Offices</a>
-                  <a href="#">Distribution Centers</a>
+                <div>
+                  <h4>{t.corporateStructure}</h4>
+                  <a href="#">{t.generationDirectorate}</a>
+                  <a href="#">{t.transmissionDirectorate}</a>
+                  <a href="#">{t.distributionDirectorate}</a>
                 </div>
-              </div>
-
-              {/* PROVINCIAL OFFICES with submenu */}
-              <div
-                className={`submenu-item ${
-                  activeSubmenu === "provincial" ? "active" : ""
-                }`}
-                onClick={(e) => toggleSubmenu(e, "provincial")}
-              >
-                <a href="#">PROVINCIAL OFFICES</a>
-                <div className="submenu">
-                  <a href="#">Province 1</a>
-                  <a href="#">Madhesh Province</a>
-                  <a href="#">Bagmati Province</a>
-                  <a href="#">Gandaki Province</a>
-                  <a href="#">Lumbini Province</a>
-                  <a href="#">Karnali Province</a>
-                  <a href="#">Sudurpashchim Province</a>
+                <div>
+                  <h4>{t.provincialOffices}</h4>
+                  <a href="#">{t.koshiProvince}</a>
+                  <a href="#">{t.madheshProvince}</a>
+                  <a href="#">{t.bagmatiProvince}</a>
+                  <a href="#">{t.gandakiProvince}</a>
+                  <a href="#">{t.lumbiniProvince}</a>
+                  <a href="#">{t.karnaliProvince}</a>
+                  <a href="#">{t.sudurProvince}</a>
+                </div>
+                <div>
+                  <h4>{t.provinceDivisionOffices}</h4>
+                  <a href="#">{t.bagmatiDivision}</a>
+                  <a href="#">{t.lumbiniDivision}</a>
                 </div>
               </div>
             </div>
@@ -106,71 +94,63 @@ export default function Navbar() {
             className={`dropdown ${activeDropdown === "media" ? "active" : ""}`}
             onClick={(e) => toggleDropdown(e, "media")}
           >
-            <span className="dropbtn">Media Center</span>
-            <div className="dropdown-content">
-              <div
-                className={`submenu-item ${
-                  activeSubmenu === "news" ? "active" : ""
-                }`}
-                onClick={(e) => toggleSubmenu(e, "news")}
-              >
-                <a href="#">News</a>
-                <div className="submenu">
-                  <a href="#">Press Releases</a>
-                  <a href="#">Latest Updates</a>
-                  <a href="#">Announcements</a>
+            <span className="dropbtn">{t.mediaCenter}</span>
+            <div className="dropdown-content mega-menu">
+              <div className="mega-columns">
+                <div>
+                  <h4>{t.formsInfo}</h4>
+                  <a href="#">{t.formsInfoLink}</a>
+                  <a href="#">{t.publicationReports}</a>
+                  <a href="#">{t.actsRegulation}</a>
+                  <a href="#">{t.pressReleases}</a>
+                </div>
+                <div>
+                  <h4>{t.newsDownloads}</h4>
+                  <a href="#">{t.news}</a>
+                  <a href="#">{t.downloads}</a>
+                </div>
+                <div>
+                  <h4>{t.annualPublication}</h4>
+                  <a href="#">{t.annualReports}</a>
+                </div>
+                <div>
+                  <h4>{t.gallery}</h4>
+                  <a href="#">{t.audioGallery}</a>
+                  <a href="#">{t.videoGallery}</a>
                 </div>
               </div>
-              <div
-                className={`submenu-item ${
-                  activeSubmenu === "events" ? "active" : ""
-                }`}
-                onClick={(e) => toggleSubmenu(e, "events")}
-              >
-                <a href="#">Events</a>
-                <div className="submenu">
-                  <a href="#">Upcoming Events</a>
-                  <a href="#">Past Events</a>
-                  <a href="#">Workshops & Seminars</a>
-                </div>
-              </div>
-              <a href="#">Gallery</a>
             </div>
           </div>
 
           {/* CONSUMERS DROPDOWN */}
           <div
-            className={`dropdown ${activeDropdown === "consumers" ? "active" : ""}`}
+            className={`dropdown ${
+              activeDropdown === "consumers" ? "active" : ""
+            }`}
             onClick={(e) => toggleDropdown(e, "consumers")}
           >
-            <span className="dropbtn">Consumers</span>
-            <div className="dropdown-content">
-              <div
-                className={`submenu-item ${
-                  activeSubmenu === "support" ? "active" : ""
-                }`}
-                onClick={(e) => toggleSubmenu(e, "support")}
-              >
-                <a href="#">Customer Support</a>
-                <div className="submenu">
-                  <a href="#">Help Center</a>
-                  <a href="#">FAQs</a>
-                  <a href="#">File Complaint</a>
-                  <a href="#">Track Complaint</a>
+            <span className="dropbtn">{t.consumers}</span>
+            <div className="dropdown-content mega-menu">
+              <div className="mega-columns">
+                <div>
+                  <h4>{t.billPayment}</h4>
+                  <a href="#">{t.checkBill}</a>
+                  <a href="#">{t.payBill}</a>
                 </div>
-              </div>
-              <div
-                className={`submenu-item ${
-                  activeSubmenu === "billing" ? "active" : ""
-                }`}
-                onClick={(e) => toggleSubmenu(e, "billing")}
-              >
-                <a href="#">Billing</a>
-                <div className="submenu">
-                  <a href="#">Pay Online</a>
-                  <a href="#">View Bill</a>
-                  <a href="#">Bill History</a>
-                  <a href="#">Payment Options</a>
+                <div>
+                  <h4>{t.telephoneDirectory}</h4>
+                  <a href="#">{t.noLightNumbers}</a>
+                  <a href="#">{t.contactDCS}</a>
+                </div>
+                <div>
+                  <h4>{t.downloads}</h4>
+                  <a href="#">{t.newCustomerForm}</a>
+                  <a href="#">{t.meterForm}</a>
+                </div>
+                <div>
+                  <h4>{t.tariffRates}</h4>
+                  <a href="#">{t.consumerTariff}</a>
+                  <a href="#">{t.ppaTariff}</a>
                 </div>
               </div>
             </div>
@@ -178,90 +158,125 @@ export default function Navbar() {
 
           {/* RECRUITMENT DROPDOWN */}
           <div
-            className={`dropdown ${activeDropdown === "recruitment" ? "active" : ""}`}
+            className={`dropdown ${
+              activeDropdown === "recruitment" ? "active" : ""
+            }`}
             onClick={(e) => toggleDropdown(e, "recruitment")}
           >
-            <span className="dropbtn">Recruitment</span>
-            <div className="dropdown-content">
-              <div
-                className={`submenu-item ${
-                  activeSubmenu === "jobs" ? "active" : ""
-                }`}
-                onClick={(e) => toggleSubmenu(e, "jobs")}
-              >
-                <a href="#">Job Openings</a>
-                <div className="submenu">
-                  <a href="#">Current Vacancies</a>
-                  <a href="#">How to Apply</a>
-                  <a href="#">Selection Process</a>
+            <span className="dropbtn">{t.recruitment}</span>
+            <div className="dropdown-content mega-menu">
+              <div className="mega-columns">
+                <div>
+                  <h4>{t.internalPromotional}</h4>
+                  <a href="#">{t.internalCourses}</a>
+                  <a href="#">{t.internalAds}</a>
+                  <a href="#">{t.internalResults}</a>
+                  <a href="#">{t.reviewCommittee}</a>
+                  <a href="#">{t.approvedListInternal}</a>
+                </div>
+                <div>
+                  <h4>{t.openRecruitment}</h4>
+                  <a href="#">{t.openAds}</a>
+                  <a href="#">{t.openResults}</a>
+                  <a href="#">{t.codeOfConduct}</a>
+                  <a href="#">{t.openCourses}</a>
+                  <a href="#">{t.applicationForm}</a>
+                  <a href="#">{t.examSchedule}</a>
+                  <a href="#">{t.results}</a>
                 </div>
               </div>
-              <a href="#">Internships</a>
             </div>
           </div>
 
           {/* ONLINE APPLICATION DROPDOWN */}
           <div
-            className={`dropdown ${activeDropdown === "application" ? "active" : ""}`}
+            className={`dropdown ${
+              activeDropdown === "application" ? "active" : ""
+            }`}
             onClick={(e) => toggleDropdown(e, "application")}
           >
-            <span className="dropbtn">Online Application</span>
-            <div className="dropdown-content">
-              <a href="#">Apply Online</a>
-              <a href="#">Application Status</a>
+            <span className="dropbtn">{t.onlineApplication}</span>
+            <div className="dropdown-content mega-menu">
+              <div className="mega-columns">
+                <div>
+                  <a href="#">{t.open}</a>
+                </div>
+                <div>
+                  <a href="#">{t.promotionalInternal}</a>
+                </div>
+              </div>
             </div>
           </div>
 
           {/* TENDERS DROPDOWN */}
           <div
-            className={`dropdown ${activeDropdown === "tenders" ? "active" : ""}`}
+            className={`dropdown ${
+              activeDropdown === "tenders" ? "active" : ""
+            }`}
             onClick={(e) => toggleDropdown(e, "tenders")}
           >
-            <span className="dropbtn">Tenders</span>
-            <div className="dropdown-content">
-              <div
-                className={`submenu-item ${
-                  activeSubmenu === "current" ? "active" : ""
-                }`}
-                onClick={(e) => toggleSubmenu(e, "current")}
-              >
-                <a href="#">Current Tenders</a>
-                <div className="submenu">
-                  <a href="#">Open Tenders</a>
-                  <a href="#">Bid Documents</a>
-                  <a href="#">Submit Bid</a>
+            <span className="dropbtn">{t.tenders}</span>
+            <div className="dropdown-content mega-menu">
+              <div className="mega-columns">
+                <div>
+                  <a href="#">{t.tendersPrequalifications}</a>
+                </div>
+                <div>
+                  <a href="#">{t.notification}</a>
+                </div>
+                <div>
+                  <a href="#">{t.awardOfContract}</a>
                 </div>
               </div>
-              <a href="#">Past Tenders</a>
             </div>
           </div>
 
-          {/* NEA OPERATIONAL REPORTS DROPDOWN */}
+          {/* REPORTS DROPDOWN */}
           <div
             className={`dropdown ${activeDropdown === "reports" ? "active" : ""}`}
             onClick={(e) => toggleDropdown(e, "reports")}
           >
-            <span className="dropbtn">Nea Operational Reports</span>
-            <div className="dropdown-content">
-              <a href="#">Annual Reports</a>
-              <a href="#">Monthly Reports</a>
+            <span className="dropbtn">{t.reports}</span>
+            <div className="dropdown-content mega-menu">
+              <div className="mega-columns">
+                <div>
+                  <a href="#">{t.dailyReports}</a>
+                </div>
+                <div>
+                  <a href="#">{t.monthlyReports}</a>
+                </div>
+                <div>
+                  <a href="#">{t.yearlyReports}</a>
+                </div>
+              </div>
             </div>
           </div>
 
-          <a href="#">स्वत प्रकाशन</a>
+          <a href="#">{t.selfPublication}</a>
 
           {/* TARIFF RATES DROPDOWN */}
           <div
             className={`dropdown ${activeDropdown === "tariff" ? "active" : ""}`}
             onClick={(e) => toggleDropdown(e, "tariff")}
           >
-            <span className="dropbtn">Tariff Rates</span>
-            <div className="dropdown-content">
-              <a href="#">Residential</a>
-              <a href="#">Commercial</a>
+            <span className="dropbtn">{t.tariffRatesMenu}</span>
+            <div className="dropdown-content mega-menu">
+              <div className="mega-columns">
+                <div>
+                  <a href="#">{t.consumerTariffs}</a>
+                </div>
+                <div>
+                  <a href="#">{t.ppaTariffs}</a>
+                </div>
+              </div>
             </div>
           </div>
         </nav>
+
+        {/* Language Toggle Button */}
+        <button className="lang-toggle" onClick={toggleLanguage}>
+          {language === "en" ? "नेपाली" : "English"}
+        </button>
       </div>
     </header>
   );
