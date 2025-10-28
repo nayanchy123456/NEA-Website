@@ -1,4 +1,4 @@
-/* Modern Navbar Styles - Enhanced */
+/* Modern Navbar Styles - Blue & Gold Theme */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
 * {
@@ -8,15 +8,13 @@
 }
 
 .navbar {
-  /* Updated to soft, warm light gray-blue gradient for better visual appeal and accessibility */
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #eef2f7 100%);
+  /* Blue gradient background matching the image */
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 50%, #1e3a8a 100%);
   padding: 0.8rem 0;
-  /* increased vertical padding for taller navbar */
   position: sticky;
   top: 0;
   z-index: 1000;
-  /* Enhanced shadow for more depth and modern look */
-  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.08), 0 0 1px rgba(15, 23, 42, 0.04) inset;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   font-family: "Inter", sans-serif;
 }
 
@@ -27,8 +25,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  /* Subtle glassmorphism with reduced opacity for softer effect */
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(37, 99, 235, 0.1);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   z-index: -1;
@@ -41,13 +38,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 1.5rem;
-  /* increased horizontal padding for better spacing */
   position: relative;
   gap: 0.3rem;
-  /* reduced gap from 0.5rem to 0.3rem to give more space to menu items */
   width: 100%;
   flex-wrap: nowrap;
-  /* ensure all items stay on single line */
   height: auto;
 }
 
@@ -55,18 +49,21 @@
   display: flex;
   align-items: center;
   padding: 0;
-  /* removed vertical padding as navbar now has it */
   z-index: 1001;
   flex-shrink: 0;
   margin-right: 0.5rem;
-  /* added margin to create space between logo and menu */
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .navbar-logo img {
   height: clamp(24px, 4vw, 32px);
-  /* reduced logo size from clamp(28px, 5vw, 40px) to clamp(24px, 4vw, 32px) */
   width: auto;
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.08));
+  filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
@@ -87,15 +84,14 @@
 .hamburger span {
   width: 28px;
   height: 3px;
-  /* Updated to modern slate blue for better visual hierarchy */
-  background: #3b82f6;
+  background: #fbbf24;
   border-radius: 3px;
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .hamburger:hover span {
-  background: #2563eb;
-  box-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
+  background: #f59e0b;
+  box-shadow: 0 0 8px rgba(251, 191, 36, 0.5);
 }
 
 /* Navigation Menu */
@@ -104,19 +100,16 @@
   align-items: center;
   gap: 0;
   flex-wrap: nowrap;
-  /* ensure no wrapping */
   flex: 1;
   justify-content: center;
   overflow: hidden;
   min-width: 0;
-  /* added min-width: 0 to allow flex items to shrink below content size */
 }
 
 .navbar-menu > a,
 .dropdown {
   position: relative;
   padding: clamp(0.6rem, 1vw, 0.8rem) clamp(0.15rem, 0.3vw, 0.3rem);
-  /* reduced horizontal padding from clamp(0.2rem, 0.4vw, 0.4rem) to clamp(0.15rem, 0.3vw, 0.3rem) */
   transition: all 0.3s ease;
   flex-shrink: 1;
   min-width: auto;
@@ -124,31 +117,28 @@
 }
 
 .navbar-menu > a {
-  /* Updated text color to dark slate for better readability on light background */
-  color: #334155;
+  /* Golden/yellow text color matching the image */
+  color: #fbbf24;
   text-decoration: none;
   font-weight: 500;
   font-size: clamp(0.7rem, 1vw, 0.85rem);
-  /* slightly increased font size for better readability */
   letter-spacing: 0.3px;
   border-bottom: 2px solid transparent;
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .navbar-menu > a:hover {
-  /* Updated to vibrant blue accent with subtle glow */
-  color: #3b82f6;
-  border-bottom-color: #3b82f6;
+  color: #ffffff;
+  border-bottom-color: #fbbf24;
   transform: translateY(-2px);
-  text-shadow: 0 0 8px rgba(59, 130, 246, 0.15);
+  text-shadow: 0 0 8px rgba(251, 191, 36, 0.5);
 }
 
 /* Dropdown Button */
 .dropbtn {
-  color: #334155;
+  color: #fbbf24;
   font-weight: 500;
   font-size: clamp(0.7rem, 1vw, 0.85rem);
-  /* increased font size */
   cursor: pointer;
   border: none;
   background: none;
@@ -167,8 +157,8 @@
 }
 
 .dropdown:hover .dropbtn {
-  color: #3b82f6;
-  text-shadow: 0 0 8px rgba(59, 130, 246, 0.15);
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(251, 191, 36, 0.5);
 }
 
 .dropdown:hover .dropbtn::after {
@@ -182,14 +172,13 @@
   top: calc(100% - 5px);
   left: 50%;
   transform: translateX(-50%);
-  /* Updated to soft white with subtle shadow for depth */
-  background: rgba(248, 250, 252, 0.98);
+  background: rgba(30, 64, 175, 0.98);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   min-width: 220px;
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.1), 0 0 1px rgba(15, 23, 42, 0.06) inset;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
-  border: 1px solid rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.2);
   z-index: 1000;
   overflow: hidden;
   opacity: 0;
@@ -216,8 +205,7 @@
 }
 
 .dropdown-content a {
-  /* Updated text color to dark slate for consistency */
-  color: #475569;
+  color: #fbbf24;
   padding: clamp(10px, 1.8vw, 12px) clamp(14px, 2.5vw, 18px);
   text-decoration: none;
   display: block;
@@ -229,10 +217,9 @@
 }
 
 .dropdown-content a:hover {
-  /* Updated to blue highlight with soft background */
-  background: rgba(59, 130, 246, 0.08);
-  color: #3b82f6;
-  border-left-color: #3b82f6;
+  background: rgba(251, 191, 36, 0.15);
+  color: #ffffff;
+  border-left-color: #fbbf24;
   padding-left: clamp(17px, 2.5vw, 21px);
 }
 
@@ -263,14 +250,13 @@
   position: absolute;
   left: 100%;
   top: 0;
-  /* Updated to soft white background */
-  background: rgba(248, 250, 252, 0.98);
+  background: rgba(30, 64, 175, 0.98);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   min-width: 220px;
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.1), 0 0 1px rgba(15, 23, 42, 0.06) inset;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
-  border: 1px solid rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.2);
   overflow: hidden;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -295,7 +281,7 @@
 }
 
 .submenu a {
-  color: #475569;
+  color: #fbbf24;
   padding: clamp(10px, 1.8vw, 11px) clamp(14px, 2.5vw, 18px);
   text-decoration: none;
   display: block;
@@ -306,37 +292,34 @@
 }
 
 .submenu a:hover {
-  background: rgba(59, 130, 246, 0.08);
-  color: #3b82f6;
-  border-left-color: #3b82f6;
+  background: rgba(251, 191, 36, 0.15);
+  color: #ffffff;
+  border-left-color: #fbbf24;
   padding-left: clamp(17px, 2.5vw, 21px);
 }
 
 /* Language Toggle Button */
 .lang-toggle {
-  /* Updated to blue gradient with better contrast */
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.12) 0%, rgba(59, 130, 246, 0.06) 100%);
-  color: #3b82f6;
-  border: 1.5px solid rgba(59, 130, 246, 0.35);
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.2) 0%, rgba(251, 191, 36, 0.1) 100%);
+  color: #fbbf24;
+  border: 1.5px solid rgba(251, 191, 36, 0.5);
   padding: clamp(0.5rem, 1.1vw, 0.6rem) clamp(0.7rem, 1.3vw, 0.9rem);
-  /* reduced padding from clamp(0.5rem, 1.3vw, 0.7rem) clamp(0.8rem, 1.6vw, 1.1rem) */
   cursor: pointer;
   border-radius: 8px;
   font-weight: 600;
   font-size: clamp(0.7rem, 1.1vw, 0.85rem);
-  /* increased font size */
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   white-space: nowrap;
   flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .lang-toggle:hover {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.18) 0%, rgba(59, 130, 246, 0.1) 100%);
-  color: #2563eb;
-  border-color: rgba(59, 130, 246, 0.5);
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.3) 0%, rgba(251, 191, 36, 0.15) 100%);
+  color: #ffffff;
+  border-color: #fbbf24;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .lang-toggle:active {
@@ -361,19 +344,18 @@
     height: 100vh;
     width: 100%;
     max-width: 320px;
-    /* Updated to soft light gradient for mobile menu */
-    background: linear-gradient(180deg, rgba(248, 250, 252, 0.98) 0%, rgba(241, 245, 249, 0.98) 100%);
+    background: linear-gradient(180deg, rgba(30, 64, 175, 0.98) 0%, rgba(30, 58, 138, 0.98) 100%);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     flex-direction: column;
     align-items: flex-start;
     padding: 80px 0 30px 0;
     transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    box-shadow: -5px 0 20px rgba(15, 23, 42, 0.1);
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
     overflow-y: auto;
     gap: 0;
     justify-content: flex-start;
-    border-right: 1px solid rgba(59, 130, 246, 0.1);
+    border-right: 1px solid rgba(251, 191, 36, 0.2);
   }
 
   .navbar-menu.open {
@@ -384,19 +366,19 @@
   .dropdown {
     width: 100%;
     padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
-    border-bottom: 1px solid rgba(59, 130, 246, 0.08);
+    border-bottom: 1px solid rgba(251, 191, 36, 0.15);
   }
 
   .navbar-menu > a {
-    color: #334155;
-    border-bottom: 1px solid rgba(59, 130, 246, 0.08);
+    color: #fbbf24;
+    border-bottom: 1px solid rgba(251, 191, 36, 0.15);
   }
 
   .navbar-menu > a:hover {
-    background: rgba(59, 130, 246, 0.08);
-    border-left: 4px solid #3b82f6;
+    background: rgba(251, 191, 36, 0.15);
+    border-left: 4px solid #fbbf24;
     padding-left: calc(clamp(1.5rem, 3vw, 2rem) - 4px);
-    color: #3b82f6;
+    color: #ffffff;
     transform: none;
   }
 
@@ -409,14 +391,14 @@
     justify-content: space-between;
     padding: 0;
     font-size: clamp(0.75rem, 2vw, 0.85rem);
-    color: #334155;
+    color: #fbbf24;
   }
 
   .dropdown-content {
     position: static;
     transform: none;
     box-shadow: none;
-    background: rgba(59, 130, 246, 0.05);
+    background: rgba(251, 191, 36, 0.1);
     border-radius: 0;
     margin-top: 0.5rem;
     width: 100%;
@@ -428,15 +410,15 @@
   }
 
   .dropdown-content a {
-    color: #475569;
+    color: #fbbf24;
     padding: clamp(10px, 1.5vw, 11px) clamp(20px, 3vw, 40px);
     font-size: clamp(0.75rem, 1.5vw, 0.8rem);
     border-left: none;
   }
 
   .dropdown-content a:hover {
-    background: rgba(59, 130, 246, 0.12);
-    color: #3b82f6;
+    background: rgba(251, 191, 36, 0.2);
+    color: #ffffff;
     padding-left: clamp(24px, 4vw, 64px);
   }
 
@@ -454,7 +436,7 @@
   .submenu {
     position: static;
     box-shadow: none;
-    background: rgba(59, 130, 246, 0.08);
+    background: rgba(251, 191, 36, 0.15);
     border-radius: 0;
     margin-left: 0;
     margin-top: 0;
@@ -472,14 +454,14 @@
   }
 
   .submenu a {
-    color: #64748b;
+    color: #fbbf24;
     padding: clamp(8px, 1.5vw, 9px) clamp(20px, 3vw, 60px);
     font-size: clamp(0.7rem, 1.3vw, 0.75rem);
   }
 
   .submenu a:hover {
-    background: rgba(59, 130, 246, 0.1);
-    color: #3b82f6;
+    background: rgba(251, 191, 36, 0.2);
+    color: #ffffff;
     padding-left: clamp(24px, 4vw, 64px);
   }
 
@@ -644,16 +626,16 @@
 }
 
 .navbar-menu::-webkit-scrollbar-track {
-  background: rgba(59, 130, 246, 0.05);
+  background: rgba(251, 191, 36, 0.1);
 }
 
 .navbar-menu::-webkit-scrollbar-thumb {
-  background: rgba(59, 130, 246, 0.2);
+  background: rgba(251, 191, 36, 0.3);
   border-radius: 3px;
 }
 
 .navbar-menu::-webkit-scrollbar-thumb:hover {
-  background: rgba(59, 130, 246, 0.4);
+  background: rgba(251, 191, 36, 0.5);
 }
 
 /* Add subtle entrance animation */
@@ -679,15 +661,14 @@
   top: calc(60px - 5px);
   left: 50%;
   transform: translateX(-50%);
-  /* Updated to soft white background */
-  background: rgba(248, 250, 252, 0.98);
+  background: rgba(30, 64, 175, 0.98);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   padding: clamp(1rem, 1.8vw, 1.2rem);
   padding-top: calc(clamp(1rem, 1.8vw, 1.2rem) + 5px);
   border-radius: 0 0 10px 10px;
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.1), 0 0 1px rgba(15, 23, 42, 0.06) inset;
-  border: 1px solid rgba(59, 130, 246, 0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(251, 191, 36, 0.2);
   border-top: none;
   z-index: 10000;
   min-width: 90vw;
@@ -725,26 +706,24 @@
 }
 
 .mega-menu .mega-columns > div {
-  /* Updated card styling with blue tint for visual hierarchy */
-  background: rgba(59, 130, 246, 0.06);
+  background: rgba(251, 191, 36, 0.1);
   border-radius: 10px;
   padding: clamp(0.8rem, 1.3vw, 1rem);
   min-width: clamp(180px, 20vw, 260px);
   flex: 1;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(59, 130, 246, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(251, 191, 36, 0.25);
   transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
 }
 
 .mega-menu .mega-columns > div:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(59, 130, 246, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
 .mega-menu h4 {
   font-size: clamp(0.7rem, 0.9vw, 0.8rem);
-  /* Updated to blue accent */
-  color: #3b82f6;
+  color: #fbbf24;
   font-weight: 600;
   margin-bottom: 0.6rem;
   text-transform: uppercase;
@@ -753,7 +732,7 @@
 
 .mega-menu a {
   display: block;
-  color: #64748b;
+  color: #fde68a;
   padding: 5px 0;
   font-size: clamp(0.8rem, 0.95vw, 0.85rem);
   font-weight: 500;
@@ -762,7 +741,7 @@
 }
 
 .mega-menu a:hover {
-  color: #3b82f6;
+  color: #ffffff;
 }
 
 /* Keep mega-menu open on hover (desktop) */
@@ -785,7 +764,7 @@
     width: 100%;
     padding: clamp(0.8rem, 1.5vw, 1rem) 0;
     border-radius: 0;
-    background: rgba(59, 130, 246, 0.05);
+    background: rgba(251, 191, 36, 0.1);
     box-shadow: none;
     opacity: 1;
     pointer-events: auto;
@@ -814,8 +793,8 @@
     min-width: 100%;
     max-width: 100%;
     padding: clamp(0.6rem, 1.3vw, 0.75rem) clamp(0.8rem, 1.8vw, 1rem);
-    background: rgba(59, 130, 246, 0.08);
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    background: rgba(251, 191, 36, 0.15);
+    border: 1px solid rgba(251, 191, 36, 0.3);
   }
 
   .mega-menu h4 {
@@ -829,7 +808,7 @@
   }
 
   .mega-menu a:hover {
-    color: #3b82f6;
+    color: #ffffff;
   }
 }
 
