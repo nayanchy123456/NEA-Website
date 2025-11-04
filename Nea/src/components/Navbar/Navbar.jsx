@@ -35,10 +35,6 @@ export default function Navbar() {
   return (
     <header className="navbar">
       <div className="navbar-container">
-        <div className="navbar-logo">
-          <img src="/src/assets/logo.png" alt="NEA Logo" />
-        </div>
-
         {/* Hamburger icon */}
         <div className="hamburger" onClick={toggleMobileMenu}>
           <span></span>

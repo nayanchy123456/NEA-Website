@@ -12,7 +12,7 @@
   background: linear-gradient(135deg, #2563eb 0%, #1e40af 50%, #1e3a8a 100%);
   padding: 0.8rem 0;
   position: sticky;
-  top: 0;
+  top: 80px; /* Position below header */
   z-index: 1000;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   font-family: "Inter", sans-serif;
@@ -43,32 +43,6 @@
   width: 100%;
   flex-wrap: nowrap;
   height: auto;
-}
-
-.navbar-logo {
-  display: flex;
-  align-items: center;
-  padding: 0;
-  z-index: 1001;
-  flex-shrink: 0;
-  margin-right: 0.5rem;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 8px;
-  padding: 0.4rem 0.6rem;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-.navbar-logo img {
-  height: clamp(24px, 4vw, 32px);
-  width: auto;
-  filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.navbar-logo img:hover {
-  transform: scale(1.08);
 }
 
 /* Hamburger Menu */
@@ -328,6 +302,10 @@
 
 /* Mobile Menu Styles */
 @media screen and (max-width: 1200px) {
+  .navbar {
+    top: 60px; /* Position below mobile header */
+  }
+
   .hamburger {
     display: flex;
   }
@@ -521,17 +499,13 @@
 
 /* Small devices */
 @media screen and (max-width: 768px) {
+  .navbar {
+    top: 60px; /* Position below mobile header */
+  }
+
   .navbar-container {
     padding: 0 0.5rem;
     gap: 0.25rem;
-  }
-
-  .navbar-logo {
-    padding: 0.5rem 0;
-  }
-
-  .navbar-logo img {
-    height: clamp(20px, 4vw, 28px);
   }
 
   .hamburger {
@@ -554,14 +528,6 @@
   .navbar-container {
     padding: 0 0.4rem;
     gap: 0.2rem;
-  }
-
-  .navbar-logo {
-    padding: 0.5rem 0;
-  }
-
-  .navbar-logo img {
-    height: clamp(18px, 3.5vw, 24px);
   }
 
   .hamburger {
@@ -599,10 +565,6 @@
 @media screen and (max-width: 320px) {
   .navbar-container {
     padding: 0 0.3rem;
-  }
-
-  .navbar-logo img {
-    height: 18px;
   }
 
   .hamburger span {
@@ -658,7 +620,7 @@
 .dropdown-content.mega-menu {
   display: none;
   position: fixed;
-  top: calc(60px - 5px);
+  top: calc(140px - 5px); /* Adjusted for header + navbar height */
   left: 50%;
   transform: translateX(-50%);
   background: rgba(30, 64, 175, 0.98);
@@ -682,7 +644,7 @@
 .dropdown.mega-dropdown::after {
   content: "";
   position: fixed;
-  top: 55px;
+  top: 135px; /* Adjusted for header + navbar height */
   left: 0;
   right: 0;
   height: 50px;
