@@ -1,39 +1,53 @@
-import { useState } from "react";
-import "./Navbar.css";
-import { translations } from '/src/translations/translations.js';
+"use client"
+
+import { useState, useEffect } from "react"
+import "./Navbar.css"
+import { translations } from "/src/translations/translations.js"
 
 export default function Navbar() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState(null);
-  const [activeSubmenu, setActiveSubmenu] = useState(null);
-  const [language, setLanguage] = useState("en");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [activeDropdown, setActiveDropdown] = useState(null)
+  const [activeSubmenu, setActiveSubmenu] = useState(null)
+  const [language, setLanguage] = useState("en")
+  const [isScrolled, setIsScrolled] = useState(false)
 
-  const t = translations[language];
+  const t = translations[language]
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY
+      // When scroll is > 90px, navbar moves to top
+      setIsScrolled(scrollTop > 90)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
 
   const toggleLanguage = () => {
-    setLanguage(language === "en" ? "ne" : "en");
-  };
+    setLanguage(language === "en" ? "ne" : "en")
+  }
 
   const toggleDropdown = (e, dropdownName) => {
-    e.preventDefault();
+    e.preventDefault()
     if (window.innerWidth <= 1200) {
-      setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName);
-      setActiveSubmenu(null);
+      setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName)
+      setActiveSubmenu(null)
     }
-  };
+  }
 
   const toggleSubmenu = (e, submenuName) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setActiveSubmenu(activeSubmenu === submenuName ? null : submenuName);
-  };
+    e.preventDefault()
+    e.stopPropagation()
+    setActiveSubmenu(activeSubmenu === submenuName ? null : submenuName)
+  }
 
   return (
-    <header className="navbar">
+    <header className={`navbar ${isScrolled ? "scrolled" : ""}`}>
       <div className="navbar-container">
         {/* Hamburger icon */}
         <div className="hamburger" onClick={toggleMobileMenu}>
@@ -120,9 +134,7 @@ export default function Navbar() {
 
           {/* CONSUMERS DROPDOWN */}
           <div
-            className={`dropdown ${
-              activeDropdown === "consumers" ? "active" : ""
-            }`}
+            className={`dropdown ${activeDropdown === "consumers" ? "active" : ""}`}
             onClick={(e) => toggleDropdown(e, "consumers")}
           >
             <span className="dropbtn">{t.consumers}</span>
@@ -154,9 +166,7 @@ export default function Navbar() {
 
           {/* RECRUITMENT DROPDOWN */}
           <div
-            className={`dropdown ${
-              activeDropdown === "recruitment" ? "active" : ""
-            }`}
+            className={`dropdown ${activeDropdown === "recruitment" ? "active" : ""}`}
             onClick={(e) => toggleDropdown(e, "recruitment")}
           >
             <span className="dropbtn">{t.recruitment}</span>
@@ -186,9 +196,7 @@ export default function Navbar() {
 
           {/* ONLINE APPLICATION DROPDOWN */}
           <div
-            className={`dropdown ${
-              activeDropdown === "application" ? "active" : ""
-            }`}
+            className={`dropdown ${activeDropdown === "application" ? "active" : ""}`}
             onClick={(e) => toggleDropdown(e, "application")}
           >
             <span className="dropbtn">{t.onlineApplication}</span>
@@ -206,9 +214,7 @@ export default function Navbar() {
 
           {/* TENDERS DROPDOWN */}
           <div
-            className={`dropdown ${
-              activeDropdown === "tenders" ? "active" : ""
-            }`}
+            className={`dropdown ${activeDropdown === "tenders" ? "active" : ""}`}
             onClick={(e) => toggleDropdown(e, "tenders")}
           >
             <span className="dropbtn">{t.tenders}</span>
@@ -275,5 +281,5 @@ export default function Navbar() {
         </button>
       </div>
     </header>
-  );
+  )
 }

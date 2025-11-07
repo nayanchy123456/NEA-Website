@@ -4,8 +4,6 @@ export default function App() {
   return (
     <Layout>
       <section>
-        <h1>Welcome to NEA Website</h1>
-        <p>This is the home section content...</p>
       </section>
     </Layout>
   );
