@@ -9,17 +9,31 @@ export default function Header() {
 
   useEffect(() => {
     const nepaliMonths = [
-      "बैशाख","जेठ","आषाढ","श्रावण","भदौँ","असोज",
-      "कार्तिक","मंसिर","पौष","माघ","फाल्गुण","चैत्र"
+      "बैशाख",
+      "जेठ",
+      "आषाढ",
+      "श्रावण",
+      "भदौँ",
+      "असोज",
+      "कार्तिक",
+      "मंसिर",
+      "पौष",
+      "माघ",
+      "फाल्गुण",
+      "चैत्र",
     ];
 
     const getOrdinal = (n) => {
       if (n > 3 && n < 21) return "th";
       switch (n % 10) {
-        case 1: return "st";
-        case 2: return "nd";
-        case 3: return "rd";
-        default: return "th";
+        case 1:
+          return "st";
+        case 2:
+          return "nd";
+        case 3:
+          return "rd";
+        default:
+          return "th";
       }
     };
 
@@ -31,12 +45,16 @@ export default function Header() {
       const dayOfMonth = now.getDate();
       const month = now.toLocaleString("en-US", { month: "long" });
       const year = now.getFullYear();
-      setEnglishDate(`${day}, ${dayOfMonth}${getOrdinal(dayOfMonth)} ${month} ${year}`);
+      setEnglishDate(
+        `${day}, ${dayOfMonth}${getOrdinal(dayOfMonth)} ${month} ${year}`
+      );
 
       // Nepali date
       const isoString = now.toISOString().split("T")[0]; // YYYY-MM-DD
       const bs = new DateConverter(isoString).toBs(); // { year, month, date, day }
-      const nepaliFormatted = `${nepaliMonths[bs.month - 1]} ${bs.date}, ${bs.year}, ${bs.day}`;
+      const nepaliFormatted = `${nepaliMonths[bs.month - 1]} ${bs.date}, ${
+        bs.year
+      }, ${bs.day}`;
       setNepaliDate(nepaliFormatted);
 
       // Time in 12-hour format
@@ -58,7 +76,7 @@ export default function Header() {
     <header className="nea-header">
       <div className="nea-header-left">
         <img
-          src="/src/assets/logo.png"
+          src="/logo.png"
           alt="Nepal Electricity Authority Logo"
           className="nea-header-logo"
         />
@@ -71,7 +89,7 @@ export default function Header() {
           <p className="date-time">{time}</p>
         </div>
         <img
-          src="/src/assets/nepal_flag.gif"
+          src="/nepal_flag.gif"
           alt="Nepal Flag"
           className="nea-header-flag"
         />
