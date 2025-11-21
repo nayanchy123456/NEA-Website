@@ -1,11 +1,55 @@
-.layout {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+/* Three Column Section */
+.three-column-section {
+  width: 100%;
+  padding: 80px 20px;
+  background: #f8fafc;
 }
 
-.layout-content {
-  flex: 1;
-  background-color: var(--color-bg);
-  padding: 2rem;
+.three-column-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 30px;
+  align-items: stretch; /* Make all columns same height */
+}
+
+.column {
+  width: 100%;
+  height: 100%;
+  display: flex;           /* Make children stretch */
+  flex-direction: column;
+}
+
+.column > * {
+  flex: 1;                 /* Fill full height of column */
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .three-column-container {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  .three-column-container {
+    grid-template-columns: 1fr; /* Stack columns on tablet/mobile */
+    gap: 40px;
+  }
+
+  .three-column-section {
+    padding: 60px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .three-column-section {
+    padding: 40px 16px;
+  }
+
+  .three-column-container {
+    gap: 30px;
+  }
 }
