@@ -1,4 +1,4 @@
-import './Employees.css';
+import './employees.css';
 
 export default function Employees() {
   const employees = [
