@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./ImageSection.css";
+import "./imageSection.css";
 
 const ImageSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
