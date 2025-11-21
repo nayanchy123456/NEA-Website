@@ -1,5 +1,5 @@
 import React from 'react';
-import './EnergyDetails.css';
+import './energyDetails.css';
 
 export default function EnergyDetails() {
   const energyData = [
