@@ -5,6 +5,9 @@ import Hero from "../hero/Hero";
 import Navbar from "../Navbar/Navbar";
 import SocialSidebar from "../socialMedia/SocialMedia";
 import "./Layout.css";
+import EnergyDetails from "../energyDetails/EnergyDetails";
+import Services from "../services/Services";
+import Employees from "../employees/Employees";
 
 export default function Layout({ children }) {
   useEffect(() => {
@@ -21,10 +24,8 @@ export default function Layout({ children }) {
       }
     };
 
-    
     window.addEventListener('scroll', handleScroll);
 
-    
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -38,6 +39,22 @@ export default function Layout({ children }) {
         <Hero/>
         {children}
         <SocialSidebar/>
+        
+        {/* Three Column Section */}
+        <section className="three-column-section">
+          <div className="three-column-container">
+            <div className="column">
+              <Employees/>
+            </div>
+            <div className="column">
+              <Services/>
+            </div>
+            <div className="column">
+              <EnergyDetails/>
+            </div>
+          </div>
+        </section>
+        
         <Footer/>
       </main>
     </div>
