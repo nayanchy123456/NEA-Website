@@ -1,86 +1,70 @@
+/* Employees Section - Updated for Section1 Layout */
 .employees-section {
   padding: 0;
-  background: white;
+  background: transparent;
   position: relative;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  width: 100%;
 }
 
 .employees-container {
   max-width: 100%;
-  margin: 0 auto;
-  padding: 40px 20px;
+  margin: 0;
+  padding: 0;
 }
 
 .employees-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.employees-title {
-  font-size: 36px;
-  font-weight: 700;
-  color: #1e293b;
-  margin: 0 0 15px 0;
-  letter-spacing: -0.5px;
-}
-
-.employees-title-underline {
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-  margin: 0 auto;
-  border-radius: 2px;
+  display: none;
 }
 
 .employees-grid {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-top: 40px;
-  max-width: 400px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0;
+  max-width: 350px;
 }
 
 .employee-card {
   background: white;
   border-radius: 12px;
-  padding: 20px;
+  padding: 16px 20px;
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
   transition: all 0.3s ease;
-  border: 2px solid #e2e8f0;
+  border: 1px solid #e2e8f0;
   cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .employee-card:hover {
-  transform: translateX(8px);
-  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1), 
-              0 5px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateX(5px);
+  box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.12);
   border-color: #3b82f6;
 }
 
 .employee-image-wrapper {
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: 90px;
+  height: 110px;
   flex-shrink: 0;
-  border-radius: 8px;
+  border-radius: 6px;
   overflow: hidden;
   border: 2px solid #e2e8f0;
   transition: transform 0.3s ease;
+  background: #f1f5f9;
 }
 
 .employee-card:hover .employee-image-wrapper {
-  transform: scale(1.05);
+  transform: scale(1.03);
+  border-color: #3b82f6;
 }
 
 .employee-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top center;
 }
 
 .employee-placeholder {
@@ -90,10 +74,13 @@
   background: linear-gradient(135deg, #3b82f6, #8b5cf6);
   align-items: center;
   justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .placeholder-icon {
-  font-size: 40px;
+  font-size: 36px;
   color: white;
 }
 
@@ -103,14 +90,15 @@
 }
 
 .employee-name {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: #1e293b;
-  margin: 0 0 4px 0;
+  margin: 0 0 6px 0;
+  line-height: 1.3;
 }
 
 .employee-position {
-  font-size: 13px;
+  font-size: 12px;
   color: #64748b;
   font-weight: 500;
   margin: 0;
@@ -118,35 +106,39 @@
   letter-spacing: 0.5px;
 }
 
-@media (max-width: 768px) {
-  .employees-section {
-    padding: 40px 16px;
-  }
-
-  .employees-title {
-    font-size: 28px;
-  }
-
+/* Responsive */
+@media (max-width: 1200px) {
   .employees-grid {
-    gap: 16px;
-    max-width: 100%;
-  }
-
-  .employee-card {
-    padding: 16px;
-    gap: 16px;
+    max-width: 320px;
   }
 
   .employee-image-wrapper {
-    width: 100px;
+    width: 80px;
     height: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .employees-grid {
+    max-width: 100%;
+    gap: 16px;
+  }
+
+  .employee-card {
+    padding: 14px 16px;
+    gap: 14px;
+  }
+
+  .employee-image-wrapper {
+    width: 85px;
+    height: 105px;
   }
 
   .employee-name {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .employee-position {
-    font-size: 12px;
+    font-size: 11px;
   }
 }
