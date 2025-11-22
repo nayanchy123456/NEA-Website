@@ -5,12 +5,12 @@ export default function Employees() {
     {
       name: 'Mr. Manoj Silwal',
       position: 'Managing Director',
-      image: './src/assets/Manoj Silwal.png' // Replace with actual image path
+      image: './images/Manoj Silwal.png' // Replace with actual image path
     },
     {
       name: 'Mr. Rajan Dhakal',
       position: 'Spokesperson',
-      image: './src/assets/Rajan Dhakal.png' // Replace with actual image path
+      image: './images/Rajan Dhakal.png' // Replace with actual image path
     }
   ];
 

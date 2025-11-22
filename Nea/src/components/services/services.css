@@ -1,144 +1,200 @@
-/* ----------------------------- */
-/* SERVICES GRID FOR LAYOUT */
-/* ----------------------------- */
+/* Services Diamond Grid Layout */
 .services-container {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 100%; /* full height of its column */
-  padding: 10px;
-  background: transparent; /* matches layout background */
-  overflow: visible;
+  padding: 15px;
+  background: transparent;
 }
 
-/* Rotated 3x3 grid */
-.services-grid {
+.services-diamond-grid {
   display: grid;
-  grid-template-columns: repeat(3, 60px); /* initial small size */
-  gap: 10px;
-  transform: rotate(0deg); /* adjust rotation if needed */
-  width: fit-content;
-  transition: 0.3s ease;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 6px;
+  transform: rotate(45deg);
 }
 
-/* Individual service card */
 .service-item {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 60px;
-  height: 60px;
 }
 
-.service-item-content {
-  width: 100%;
-  height: 100%;
+.service-diamond {
+  width: 38px;
+  height: 38px;
+  background: white;
+  border: 1.5px solid #5a7a8f;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.service-diamond:hover {
+  border-color: #0098D4;
+  box-shadow: 0 3px 10px rgba(0, 152, 212, 0.25);
+  transform: scale(1.08);
+}
+
+.service-diamond-content {
+  transform: rotate(-45deg);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: white;
-  border: 1.5px solid #5a7a8f;
-  border-radius: 8px;
-  padding: 6px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
-  transition: all 0.25s ease;
-  cursor: pointer;
   text-align: center;
-  transform: rotate(0deg); /* content upright */
+  padding: 2px;
 }
 
-.service-item-content:hover {
-  box-shadow: 0 3px 8px rgba(0, 152, 212, 0.15);
-  border-color: #0098d4;
-  transform: rotate(0deg) scale(1.05);
-}
-
-/* Icon */
 .service-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 4px;
-  width: 24px;
-  height: 24px;
+  margin-bottom: 1px;
 }
 
 .service-icon svg {
-  width: 100%;
-  height: 100%;
+  width: 14px;
+  height: 14px;
 }
 
-/* Label */
 .service-label {
-  text-align: center;
-  font-size: 8px;
+  font-size: 4px;
   font-weight: 600;
-  color: #0098d4;
+  color: #0098D4;
   white-space: pre-line;
-  letter-spacing: 0.12px;
   line-height: 1.1;
+  text-transform: capitalize;
 }
 
-/* ----------------------------- */
-/* TABLET: slightly bigger cards */
-/* ----------------------------- */
+/* ---------------------- MEDIA QUERIES ---------------------- */
+
+/* Tablet */
 @media (min-width: 768px) {
-  .services-grid {
-    grid-template-columns: repeat(3, 70px);
+  .services-diamond-grid { 
+    gap: 8px;
+  }
+
+  .service-diamond { 
+    width: 48px; 
+    height: 48px; 
+    border-radius: 6px; 
+  }
+  .service-icon svg { 
+    width: 18px; 
+    height: 18px; 
+  }
+  .service-label { 
+    font-size: 5px; 
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .services-diamond-grid { 
+    gap: 10px;
+  }
+
+  .service-diamond { 
+    width: 58px; 
+    height: 58px; 
+    border-radius: 7px; 
+  }
+  .service-icon svg { 
+    width: 22px; 
+    height: 22px; 
+  }
+  .service-label { 
+    font-size: 6px; 
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1280px) {
+  .services-diamond-grid { 
     gap: 12px;
   }
 
-  .service-item {
-    width: 70px;
-    height: 70px;
+  .service-diamond { 
+    width: 65px; 
+    height: 65px;
+    border-radius: 8px;
   }
-
-  .service-item-content {
-    border: 2px solid #5a7a8f;
-    border-radius: 10px;
-    padding: 8px;
+  .service-icon svg { 
+    width: 24px; 
+    height: 24px; 
   }
-
-  .service-icon {
-    width: 28px;
-    height: 28px;
-    margin-bottom: 5px;
-  }
-
-  .service-label {
-    font-size: 9px;
+  .service-label { 
+    font-size: 6.5px; 
   }
 }
 
-/* ----------------------------- */
-/* DESKTOP: slightly bigger cards */
-/* ----------------------------- */
-@media (min-width: 1024px) {
-  .services-grid {
-    grid-template-columns: repeat(3, 80px);
+/* Extra Large Desktop */
+@media (min-width: 1440px) {
+  .services-diamond-grid { 
     gap: 14px;
   }
 
-  .service-item {
-    width: 80px;
-    height: 80px;
+  .service-diamond { 
+    width: 72px; 
+    height: 72px;
+    border-radius: 9px;
+  }
+  .service-icon svg { 
+    width: 26px; 
+    height: 26px; 
+  }
+  .service-label { 
+    font-size: 7px; 
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .services-container { 
+    padding: 10px; 
+  }
+  .services-diamond-grid { 
+    gap: 5px;
   }
 
-  .service-item-content {
-    border: 2px solid #5a7a8f;
-    border-radius: 12px;
-    padding: 10px;
+  .service-diamond { 
+    width: 34px; 
+    height: 34px; 
+    border-radius: 4px; 
+  }
+  .service-icon svg { 
+    width: 12px; 
+    height: 12px; 
+  }
+  .service-label { 
+    font-size: 3.5px; 
+  }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 480px) {
+  .services-diamond-grid { 
+    gap: 4px;
   }
 
-  .service-icon {
-    width: 32px;
-    height: 32px;
-    margin-bottom: 6px;
+  .service-diamond { 
+    width: 28px; 
+    height: 28px; 
+    border-radius: 3px;
+    border-width: 1px;
   }
-
-  .service-label {
-    font-size: 10px;
+  .service-icon svg { 
+    width: 10px; 
+    height: 10px; 
+  }
+  .service-label { 
+    font-size: 3px; 
   }
 }

@@ -7,22 +7,22 @@ const ImageSection = () => {
 
   const slides = [
     {
-      image: "/src/assets/nea1.jpg",
+      image: "/images/nea1.jpg",
       title: "Powering Nepal's Future",
       subtitle: "Reliable electricity for every household"
     },
     {
-      image: "/src/assets/neapic1.jpg",
+      image: "/images/neapic1.jpg",
       title: "Sustainable Energy Solutions",
       subtitle: "Leading towards a clean energy future"
     },
     {
-      image: "/src/assets/neapic2.jpg",
+      image: "/images/neapic2.jpg",
       title: "Infrastructure Development",
       subtitle: "Building a stronger power grid"
     },
     {
-      image: "/src/assets/neapic2.jpg",
+      image: "/images/neapic2.jpg",
       title: "Serving the Nation",
       subtitle: "Committed to excellence since 1985"
     }

@@ -58,7 +58,7 @@ export default function Header() {
     <header className="nea-header">
       <div className="nea-header-left">
         <img
-          src="/src/assets/logo.png"
+          src="./images/logo.png"
           alt="Nepal Electricity Authority Logo"
           className="nea-header-logo"
         />
@@ -71,7 +71,7 @@ export default function Header() {
           <p className="date-time">{time}</p>
         </div>
         <img
-          src="/src/assets/nepal_flag.gif"
+          src="./images/nepal_flag.gif"
           alt="Nepal Flag"
           className="nea-header-flag"
         />
